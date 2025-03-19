@@ -12,8 +12,11 @@ function mensagemTELA(){
 
     if (!nome || !email || !unidade || !solicitacao){
         verify.innerHTML = "Por favor, preencha todos os campos";
-    } else {   
-        window.location.href = "confirma.html";
-        verify.innerHTML = `nome é ${nome}, email é ${email}, unidade é ${unidade} e solicitação é ${solicitacao}`;
     }
+    else {   
+        alert(`Olá, ${nome}, sua solicitação "${solicitacao}" foi registrada em nosso sistema.`);
+        window.location.href = "confirma.html";
+    }
+
 }
+
