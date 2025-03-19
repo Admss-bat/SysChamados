@@ -9,5 +9,11 @@ function mensagemTELA(){
     var email = document.querySelector("#email").value;
     var unidade = document.querySelector("#unidade").value;
     var solicitacao = document.querySelector("#solicitacao").value;
-    verify.innerHTML = `nome é ${nome}, email é ${email}, unidade é ${unidade} e solicitação é ${solicitacao}`;
+
+    if (!nome || !email || !unidade || !solicitacao){
+        verify.innerHTML = "Por favor, preencha todos os campos";
+    } else {   
+        window.location.href = "confirma.html";
+        verify.innerHTML = `nome é ${nome}, email é ${email}, unidade é ${unidade} e solicitação é ${solicitacao}`;
+    }
 }
