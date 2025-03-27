@@ -23,8 +23,8 @@ h1{
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
-    width: 600px;
-    height: 200px;
+    width: 40vh;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 3px rgb(0, 0, 1);
     padding: 15px;
@@ -32,6 +32,5 @@ h1{
 
 #confirmacao h2{
     font-size: 30px;
-    margin-top: 75px;
-    margin-left: 30px;
+    text-align: center;
 }
