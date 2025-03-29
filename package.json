@@ -1,0 +1,25 @@
+{
+  "name": "projetinho",
+  "version": "1.0.0",
+  "description": "Hoje é 23/03/2025.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Admss-bat/Projetinho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Admss-bat/Projetinho/issues"
+  },
+  "homepage": "https://github.com/Admss-bat/Projetinho#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0"
+  }
+}
