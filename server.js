@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3306;  // Para localhost, user "const port = 3000;". Pode ser qualquer outra porta, na verdadem, mas padronizei essa para localhost.
+const port = process.env.PORT || 3000;  // Para localhost, user "const port = 3000;". Pode ser qualquer outra porta, na verdadem, mas padronizei essa para localhost.
 
 // Middlewares
 app.use(cors());  // Para permitir CORS
@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
 
 //Informações do MySQL
 const connection = mysql.createConnection({
-    host: 'gondola.proxy.rlwy.net',  // Host do banco no Railway
-    user: 'root',                // Usuário do banco de Dados
-    password: 'FHYdzwCdessrMqHCaEVMDtvPnqCAkMaO', // Senha do banco de Dados
-    database: 'railway',   // Nome do banco de Dados
-    port: 36149 // A porta do banco de dados do Railway
+    host: "gondola.proxy.rlwy.net",  // Host do banco no Railway
+    user: "root",                // Usuário do banco de Dados
+    password: "FHYdzwCdessrMqHCaEVMDtvPnqCAkMaO", // Senha do banco de Dados
+    database: "railway",   // Nome do banco de Dados
+    port: "36149" // A porta do banco de dados do Railway
 })
 
 //Verificando se vai conectar no BD
