@@ -4,46 +4,53 @@ let verify = document.querySelector("#retorno");/* cria para receber a tag div*/
 
 botao.addEventListener("click", mensagemTELA); /* executa função ao clicar em botao*/
 
-function mensagemTELA(){
+document.querySelector("#name").addEventListener("input", function () {   // Remove números e caracteres especiais enquanto digita
+    this.value = this.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, ""); 
+});
+
+async function mensagemTELA(){
     var nome = document.querySelector("#name").value; /*recebe input*/
     var email = document.querySelector("#email").value; /*recebe input*/
     var unidade = document.querySelector("#unidade").value; /*recebe input*/
     var solicitacao = document.querySelector("#solicitacao").value; /*recebe input*/
 
-    if (!nome || !email || !unidade || !solicitacao){
-        verify.innerHTML = "Por favor, preencha todos os campos!!"; /*Exibe mensagem de vazio, de houver*/
-        return;
+    if (!nome || !email || !unidade || !solicitacao){   /*Exibe mensagem de espaço vazio, de houver*/
+        alert("Por favor, preencha todos os campos!!"); 
+        return; 
     }
     else {  
-        /*Quando eu criar um banco de dados para inserir as infos,
-        irei adicionar um IF nessa linha*/
-        //alert(`Olá, ${nome}, sua solicitação "${solicitacao}" foi registrada em nosso sistema.`); /*Alerta sucesso*/
-        const chamado = {
+        
+        const chamado = {  //Cria o Objeto chamado.
+            //id: null,
             solicitante: nome,
             email: email,
             unidade: unidade,
             solicitacao: solicitacao
+            //hora_abertura: null,
+            //concluido: false,
+            //hora_conclusao: null,
+            //tecnico: null
         }
-
-        const response = await fetch('https://projetinho-production-7c38.up.railway.app/chamado',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(chamado)
-        });
-
-        const data = await response.json();
+        try{
+            const response = await fetch('https://projetinho-production-7c38.up.railway.app/chamado',{ //Faz requisição ao banco de dados e armazenando resposta na variável.
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(chamado)  //formata o objeto em texto JSON
+            });
         
-        if(response.ok){
+            if(response.ok){ //Verifica resposta do server: se ok ou não.
 
-            window.location.href = "confirma.html"; /*Encaminha pra a página final de confirmação*/
+                window.location.href = "confirma.html"; // Encaminha pra a página final de confirmação
         
-        } else{
+            } else {
+                const erroData = await response.json(); // Armazena a resposta do banco de dados como string na variável
+                alert("Erro ao registrar o chamado: " + (erroData.message || "Erro desconhecido.")); // Alerta de erro.
 
-            document.getElementById('retorno').innerHTML = ${data.message};
-            
+            }
+        } catch (error){
+            console.error("erro ao enviar a solicitação: ", error);
+            alert("Erro de conexão! Verifique sua internet ou tente novamente mais tarde.");
         }
-         
     }
-
-}
+};
 
