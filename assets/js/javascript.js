@@ -12,12 +12,37 @@ function mensagemTELA(){
 
     if (!nome || !email || !unidade || !solicitacao){
         verify.innerHTML = "Por favor, preencha todos os campos!!"; /*Exibe mensagem de vazio, de houver*/
+        return;
     }
     else {  
         /*Quando eu criar um banco de dados para inserir as infos,
         irei adicionar um IF nessa linha*/
-        alert(`Olá, ${nome}, sua solicitação "${solicitacao}" foi registrada em nosso sistema.`); /*Alerta sucesso*/
-        window.location.href = "confirma.html"; /*Encaminha pra a página final de confirmação*/
+        //alert(`Olá, ${nome}, sua solicitação "${solicitacao}" foi registrada em nosso sistema.`); /*Alerta sucesso*/
+        const chamado = {
+            solicitante: nome,
+            email: email,
+            unidade: unidade,
+            solicitacao: solicitacao
+        }
+
+        const response = await fetch('https://projetinho-production-7c38.up.railway.app/chamado',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(chamado)
+        });
+
+        const data = await response.json();
+        
+        if(response.ok){
+
+            window.location.href = "confirma.html"; /*Encaminha pra a página final de confirmação*/
+        
+        } else{
+
+            document.getElementById('retorno').innerHTML = ${data.message};
+            
+        }
+         
     }
 
 }
