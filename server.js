@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;// process.env.PORT || 3306;  // Para localhost, user "const port = 3000;". Pode ser qualquer outra porta, na verdadem, mas padronizei essa para localhost.
+const port = process.env.PORT || 3000;  // Para localhost, user "const port = 3000;". Pode ser qualquer outra porta, na verdadem, mas padronizei essa para localhost.
 
 // Middlewares
 app.use(cors());  // Para permitir CORS
