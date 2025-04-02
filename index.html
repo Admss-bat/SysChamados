@@ -12,17 +12,17 @@
     <h1>Abertura de chamados</h1>
     <div class="quadro">
         <div class="dadoUser">
-            <form>
-            Nome Completo: <input id="name" type="text" name="nome" placeholder="Insira seu nome completo"></input>
+            <form method="POST" id="formChamado">
+                Nome Completo: <input id="name" type="text" name="nome" placeholder="Insira seu nome completo"></input>
             
-            E-mail: <input id="email" type="email" name="email" placeholder="Insira seu e-mail" required></input>
+                E-mail: <input id="email" type="email" name="email" placeholder="Insira seu e-mail" required></input>
             
-            Unidade: <input id="unidade" type="text" name="unidade" placeholder="Nome da unidade"></input>
+                Unidade: <input id="unidade" type="text" name="unidade" placeholder="Nome da unidade"></input>
             
-            Descreva sua solicitação<br>
-            <textarea id="solicitacao" type="text" name="solicitacao" placeholder="Descreva detalhadamente a sua solicitação..."></textarea>
+                Descreva sua solicitação<br>
+                <textarea id="solicitacao" type="text" name="solicitacao" placeholder="Descreva detalhadamente a sua solicitação..."></textarea>
 
-            <button id="enviar">Enviar Solicitação</button>
+                <button id="enviar">Enviar Solicitação</button>
             </form>
         </div>    
         <div id="retorno">

@@ -2,6 +2,7 @@
 const botao = document.querySelector("#enviar"); /*Cria botao para receber a tag button*/
 let verify = document.querySelector("#retorno");/* cria para receber a tag div*/
 
+
 botao.addEventListener("click", mensagemTELA); /* executa função ao clicar em botao*/
 
 document.querySelector("#name").addEventListener("input", function () {   // Remove números e caracteres especiais enquanto digita
@@ -21,17 +22,16 @@ async function mensagemTELA(){
     else {  
         
         const chamado = {  //Cria o Objeto chamado.
-            //id: null,
             solicitante: nome,
             email: email,
             unidade: unidade,
             solicitacao: solicitacao
-            //hora_abertura: null,
-            //concluido: false,
-            //hora_conclusao: null,
-            //tecnico: null
         }
         try{
+
+            botao.disabled = true;  //impede o botão de ser clicado novamente.
+            botao.textContent = "Enviando...";
+
             const response = await fetch('https://projetinho-production-7c38.up.railway.app/chamado',{ //Faz requisição ao banco de dados e armazenando resposta na variável.
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},

@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
 
 //Informações do MySQL
 const connection = mysql.createConnection({
-    host: "gondola.proxy.rlwy.net",  // Host do banco no Railway
-    user: "root",                // Usuário do banco de Dados
-    password: "FHYdzwCdessrMqHCaEVMDtvPnqCAkMaO", // Senha do banco de Dados
-    database: "railway",   // Nome do banco de Dados
-    port: "36149" // A porta do banco de dados do Railway
+    host: process.env.DB_HOST,  // Host do banco no Railway
+    user: process.env.DB_USER,      // Usuário do banco de Dados
+    password: process.env.DB_PASSWORD, // Senha do banco de Dados
+    database: process.env.DB_NAME,   // Nome do banco de Dados
+    port: process.env.DB_PORT // A porta do banco de dados do Railway
 })
 
 //Verificando se vai conectar no BD
@@ -32,7 +32,7 @@ connection.connect((err) => {
     console.log('Conectado ao banco de dados MySQL com sucesso!');
 });
 
-//Rota para criação de chamados
+//Rota para criação de chamados(endpoint)
 app.post('/chamado', (req, res) => {
     const { solicitante, email, unidade, solicitacao } = req.body;
 
@@ -50,14 +50,6 @@ app.post('/chamado', (req, res) => {
         });
     });
 }); 
-
-// ---> Devo escrever isso no Postman para testar a API.
-//{
-//    "solicitante": "João",
-//    "email": "joao@example.com",
-//   "unidade": "TI",
-//    "solicitacao": "Preciso de ajuda com a rede!"
-//}
 
 // Iniciar o servidor
 app.listen(port, () => {
