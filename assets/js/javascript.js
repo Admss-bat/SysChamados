@@ -32,7 +32,7 @@ async function mensagemTELA(){
             botao.disabled = true;  //impede o botão de ser clicado novamente.
             botao.textContent = "Enviando...";
 
-            const response = await fetch('https://projetinho-production-7c38.up.railway.app/chamado',{ //Faz requisição ao banco de dados e armazenando resposta na variável.
+            const response = await fetch('https://syschamados-production-7c38.up.railway.app/chamado',{ //Faz requisição ao banco de dados e armazenando resposta na variável.
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(chamado)  //formata o objeto em texto JSON
