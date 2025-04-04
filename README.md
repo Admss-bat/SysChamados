@@ -11,8 +11,9 @@ Irei atualizando esse README.md com "Att - data do dia: texto" para manter um hi
 
 Tudo também está sendo registrados em GIT.
 
-Att - Fiquei tão focado que esquece de ir alimentando o README. haha.
+Att - Não sei a data - Fiquei tão focado que esquece de ir alimentando o README. haha.
       Mas durante a prática eu passei pelo CSS e Javascript. Além disso, consegui entender melhor o que é o Node.js, como ele funciona e conheci algumas ferramentas de hospedagem gratuitas também
       Atualmente o sistema está "funcional". O usuário abre o index.html, abre o chamado e o chamado dele vai para o banco de dados.
       Os próximos passos desse projeto será a criação de uma plataforma para os técnicos(com login) visualizarem os chamados e dar como concluídos e uma outra plataforma(também com login) para que o "cliente" visualize os seus chamados.
       
+Att - 03/04/2025 - Alterei o nome do repositório de "Projetinho" para "SysChamados".
