@@ -40,7 +40,7 @@ async function mensagemTELA(){
         
             if(response.ok){ //Verifica resposta do server: se ok ou não.
 
-                window.location.href = "confirma.html"; // Encaminha pra a página final de confirmação
+                window.location.href = "views/confirma.html"; // Encaminha pra a página final de confirmação
         
             } else {
                 const erroData = await response.json(); // Armazena a resposta do banco de dados como string na variável
